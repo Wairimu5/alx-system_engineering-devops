@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Stops a file execution
+
+pid=$(pgrep -f "bash ./4-to_infinity_and_beyond")
+
+if [ -n "$pid" ]; then
+    kill "$pid"
+    echo "Process stopped successfully"
+else
+    echo "Process is not running"
+fi
