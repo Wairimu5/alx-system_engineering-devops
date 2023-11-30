@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Mounts port listner
+nc -l -p 98
