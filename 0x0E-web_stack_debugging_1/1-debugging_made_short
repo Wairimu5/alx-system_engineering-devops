@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# Check if Nginx is running, then update the configuration and restart the service
-if service nginx status | grep -q "active (running)"; then
+
+# Check if Nginx is not running
+if service nginx status | grep -q "nginx is not running"; then
+    # Update Nginx configuration
     sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+    
+    # Restart Nginx service
     service nginx restart
-else
-    echo "Nginx is not running."
 fi
